@@ -167,56 +167,7 @@ public class Card implements Serializable, Comparable<Card> {
         }
     }
 
-    public static void main(String[] argvs) {
-        ArrayList<Card> card = new ArrayList<>();
-        card.add(new Card(Rank.TEN, Suit.DIAMONDS));
-        card.add(new Card(Rank.FOUR, Suit.SPADES));
-        card.add(new Card(Rank.TEN, Suit.SPADES));
-        card.add(new Card(Rank.TWO, Suit.CLUBS));
-        card.add(new Card(Rank.SIX, Suit.HEARTS));
-        card.add(new Card(Rank.THREE, Suit.CLUBS));
-        card.add(new Card(Rank.THREE, Suit.DIAMONDS));
-
-        System.out.println(card);
-
-        System.out.println("\nmax(): " + max(card));
-
-        System.out.println("\ncompareTo");
-        Collections.sort(card);
-        for (Card c : card) {
-            System.out.println(c);
-        }
-
-        System.out.println("\n Sort by Rank");
-        Collections.sort(card, new CompareRank());
-        for (Card c : card) {
-            System.out.println(c);
-        }
-
-        System.out.println("\n Sort Descending");
-        Collections.sort(card, new CompareDescending());
-        for (Card c : card) {
-            System.out.println(c);
-        }
-
-        System.out.println("\nChoose Greater");
-        System.out.println("card:" + card.get(3));
-        card = chooseGreater(card, new CompareRank(), card.get(3));
-        for (Card c : card) {
-            System.out.println(c);
-        }
-
-        //lamda expression
-        compareCards compL = (Card a, Card b) -> {
-            if ((a.rank.value > b.rank.value) || (a.rank.value == b.rank.value)) {
-                if (a.suit.value > b.suit.value) {
-                    return a;
-                }
-            }
-            return b;
-        };
-        selectTest(new CompareRank(), new CompareDescending(), (compareCards) compL);
-    }
+    public static void main(String[] argvs) {   }
 
     interface compareCards {
 
